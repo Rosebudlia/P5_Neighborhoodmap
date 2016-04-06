@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Berlin Biergarten Finder</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/styles.css" rel="stylesheet" media="all">
+		<link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="all">
+		<link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" media="all">
+
+
+
+
+    </head>
+    <body>
+
+
+        <div class="container-fluid">
+
+		<div class="row"><h1>Berlin Biergarten Finder</h1></div>
+		
+		<div class="row">
+		<div class="col-md-3" id="nav">
+		<div class="row">Search<input name="search" size="45"></input></div>
+		<div class="row"><ul id="places" data-bind="foreach: srchResults[0]">
+			<li>G:<span data-bind="text: name"></span></li>
+		</ul></div>
+		</div>
+        <div class="col-md-9" id="map"></div>
+		</div>
+
+        </div>
+
+
+		<script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=[APIKEY]&callback=initMap&libraries=places">
+        </script>		
+		<script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+<!--				<script src="js/ko_functions.js"></script>-->
+		<script src="js/functions.js"></script>
+
+        
+    </body>
+</html>
