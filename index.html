@@ -23,8 +23,8 @@
 		<div class="row">
 		<div class="col-md-3" id="nav">
 		<div class="row">Search<input name="search" size="45"></input></div>
-		<div class="row"><ul id="places" data-bind="foreach: srchResults[0]">
-			<li>G:<span data-bind="text: name"></span></li>
+		<div class="row"><ul id="places" data-bind="foreach: srchResults">
+			<li><span data-bind="text: $data.name"></span></li>
 		</ul></div>
 		</div>
         <div class="col-md-9" id="map"></div>
@@ -34,7 +34,7 @@
 
 
 		<script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=[APIKEY]&callback=initMap&libraries=places">
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeBg3O9Kph3vk51C7aMgfm9AgZlWzSIvA&callback=initMap&libraries=places">
         </script>		
 		<script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
