@@ -89,9 +89,32 @@ function createMarker(place) {
   google.maps.event.addListener(marker, 'click', function() {
 	  
 	  
-	var content = loadFS(place);
-    infowindow.setContent(content);
-    infowindow.open(map, this);
+	var fsUrl = 'https://api.foursquare.com/v2/venues/search?client_id=MVIMITTX1BD0JRLTXC4HBDUC1S1BWMZH2BES15CNNPHSL2CP&client_secret=HPOJUZR2UZWWNKBRPKLSXF5Z2QSOOZXS3QVOOEUCK3ICHX3V&v=20140806&near=berlin, DE&query=' + place.name + '&limit=1&intent=browse'
+	
+	$.getJSON(fsUrl, function(data){
+	
+		console.log(data.response.venues[0].stats.checkinsCount);
+		var content = data.response.venues[0].stats.checkinsCount;
+		var infowindow = new google.maps.InfoWindow({
+		content: '<p>' + content + '</p>'
+			});
+
+		infowindow.open(map, this);
+	
+
+    }).fail(function(e){
+       
+	   var content = 'No foursquare data available for this venue';
+		var infowindow = new google.maps.InfoWindow({
+			content: '<p>' + content + '</p>'
+		});
+	
+		infowindow.open(map, this);
+		
+    });
+	
+	
+    
   });
   
 }
@@ -102,19 +125,7 @@ function loadFS(name){
 	var content;
 	
 
-	var fsUrl = 'https://api.foursquare.com/v2/venues/search?client_id=MVIMITTX1BD0JRLTXC4HBDUC1S1BWMZH2BES15CNNPHSL2CP&client_secret=HPOJUZR2UZWWNKBRPKLSXF5Z2QSOOZXS3QVOOEUCK3ICHX3V&v=20140806&near=berlin, DE&query=' + name.name + '&limit=1&intent=browse'
-	
-	$.getJSON(fsUrl, function(data){
-	console.log(data.response.venues[0].stats.checkinsCount);
-        var content = data.response.venues[0].stats.checkinsCount;
-		
-		return content;
 
-    }).error(function(e){
-        var content = 'No foursquare data available for this venue';
-		return content;
-    });
-	
 }
 
 //make the list items rendering function a part of the viewModel
