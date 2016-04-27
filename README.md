@@ -16,3 +16,5 @@ This app uses the Google Maps Javascript API and the Foursquare API to retrive t
 3. To view FourSquare check-in information about a beer garden, simply click on either the map marker or the list item to open a pop-up window. 
 
 4. To filter the search results and the markers on the map, simply type a search term into the search box in the top left of the screen (top of the screen on mobile). The beer gardens will be filtered immediately in response to what you type!
+
+Go to https://github.com/Rosebudlia/P7_1_Neighborhoodmap.git to view this project on GitHub.
